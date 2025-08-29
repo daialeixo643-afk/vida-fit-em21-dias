@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vida Fit em 21 Dias — Ebook Oficial</title>
+  <meta name="description" content="Transforme sua rotina com exercícios em casa, alimentação saudável e hábitos de bem-estar. Ebook completo: Vida Fit em 21 Dias." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a;           /* slate-900 */
+      --panel:#0b1224;        /* deep panel */
+      --brand:#22c55e;        /* green-500 */
+      --brand-2:#16a34a;      /* green-600 */
+      --text:#e5e7eb;         /* gray-200 */
+      --muted:#9ca3af;        /* gray-400 */
+      --card:#101937;
+      --accent:#60a5fa;       /* blue-400 */
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b1120 0%, #0f172a 60%, #111827 100%);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1150px;margin:0 auto;padding:0 20px}
+
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(11,17,32,.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.4px}
+    .brand .logo{
+      width:34px;height:34px;border-radius:12px;
+      background:linear-gradient(135deg,var(--brand),var(--accent));box-shadow:var(--shadow)
+    }
+    .nav a.btn{margin-left:10px}
+    .menu{display:flex;gap:22px}
+    .menu a{color:var(--muted);font-weight:600}
+    .menu a:hover{color:#fff}
+
+    /* Buttons */
+    .btn{
+      display:inline-block;padding:14px 22px;border-radius:12px;
+      font-weight:700;box-shadow:var(--shadow);transition:.25s ease;background:var(--brand);color:#0b1120
+    }
+    .btn:hover{transform:translateY(-2px);background:var(--brand-2)}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,.18);color:#fff}
+    .btn-outline:hover{border-color:var(--brand);color:#fff}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden}
+    .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:70px 0}
+    .spark{
+      position:absolute;inset:-20%;background:radial-gradient(60% 60% at 70% 20%, rgba(34,197,94,.25), transparent 60%);
+      filter:blur(40px);z-index:-1
+    }
+    .kicker{color:var(--accent);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.85rem}
+    h1{font-family:Poppins,Inter,sans-serif;font-size:clamp(2rem,5vw,3.5rem);line-height:1.15;margin:.3rem 0 1rem}
+    .lead{font-size:1.1rem;color:var(--muted);max-width:52ch}
+    .actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+
+    /* Feature grid */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:20px;
+      box-shadow:var(--shadow);min-height:130px
+    }
+    .card h4{margin:.3rem 0 .4rem;font-size:1.05rem}
+    .pill{display:inline-block;font-size:.8rem;color:#0b1120;background:var(--accent);padding:6px 10px;border-radius:999px;font-weight:800;letter-spacing:.02em}
+
+    /* Section titles */
+    .section{padding:70px 0}
+    .section h2{font-family:Poppins,Inter,sans-serif;font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 0 10px}
+    .section p.sub{color:var(--muted);margin:0 0 26px}
+
+    /* Curriculum / What you learn */
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .list{display:grid;gap:12px}
+    .row{
+      display:flex;gap:12px;align-items:flex-start;background:var(--card);
+      border:1px solid rgba(255,255,255,.06);padding:16px;border-radius:14px
+    }
+    .row .dot{min-width:10px;height:10px;border-radius:999px;background:var(--brand);margin-top:8px}
+
+    /* Testimonials */
+    .testi{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .tcard{background:var(--card);border:1px solid rgba(255,255,255,.06);padding:18px;border-radius:16px;box-shadow:var(--shadow)}
+    .tname{font-weight:800;color:#fff;margin-top:8px}
+
+    /* Author */
+    .author{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:center}
+    .avatar{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+
+    /* Offer */
+    .offer{
+      background:linear-gradient(135deg, rgba(34,197,94,.15), rgba(96,165,250,.12));
+      border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:28px;box-shadow:var(--shadow)
+    }
+    .price{font-size:2.4rem;font-weight:800}
+    .strikethrough{color:var(--muted);text-decoration:line-through;margin-right:8px;font-weight:600}
+
+    /* Preview PDF */
+    .viewer{margin-top:20px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+
+    /* FAQ */
+    details{background:var(--card);border:1px solid rgba(255,255,255,.06);padding:16px;border-radius:14px}
+    summary{cursor:pointer;font-weight:700}
+    details+details{margin-top:12px}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(255,255,255,.06);padding:30px 0;color:var(--muted);text-align:center}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero .wrap{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr 1fr}
+      .grid-2{grid-template-columns:1fr}
+      .testi{grid-template-columns:1fr 1fr}
+      .author{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .features{grid-template-columns:1fr}
+      .testi{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><div class="logo" aria-hidden="true"></div> <span>Vida Fit</span></div>
+      <nav class="menu">
+        <a href="#sobre">Sobre</a>
+        <a href="#conteudo">Conteúdo</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#autora">Autora</a>
+        <a href="#oferta" class="btn btn-outline">Quero meu ebook</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="spark"></div>
+      <div class="container wrap">
+        <div>
+          <div class="kicker">Programa em 3 semanas</div>
+          <h1>Vida Fit em 21 Dias</h1>
+          <p class="lead">Exercícios que cabem na rotina, alimentação inteligente e hábitos simples para mais energia, foco e autoestima. Um guia <strong>prático</strong> e <strong>direto ao ponto</strong> para você recomeçar hoje.</p>
+          <div class="actions">
+            <!-- Botão abre diretamente o PDF enviado -->
+            <a class="btn" href="Vida FIT em 21 dias.pdf" target="_blank" rel="noopener">📥 Quero meu ebook</a>
+            <a class="btn btn-outline" href="#preview">Ver prévia</a>
+          </div>
+
+          <div class="features">
+            <div class="card">
+              <span class="pill">Treinos em casa</span>
+              <h4>Sem equipamentos</h4>
+              <p>Rotinas de 15–25min que funcionam para iniciantes.</p>
+            </div>
+            <div class="card">
+              <span class="pill">Nutrição</span>
+              <h4>Receitas inteligentes</h4>
+              <p>Práticas, baratas e com foco em saciedade.</p>
+            </div>
+            <div class="card">
+              <span class="pill">Bem‑estar</span>
+              <h4>Hábitos sustentáveis</h4>
+              <p>Sono, hidratação, manejo do estresse e foco.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1?q=80&w=1200&auto=format&fit=crop" alt="Pessoa treinando em casa com halteres" style="border-radius:22px;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow)">
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section">
+      <div class="container">
+        <h2>O guia que simplifica sua jornada</h2>
+        <p class="sub">Você não precisa de academia cara, dietas malucas ou horas livres. Precisa de um plano claro, gentil com sua rotina e que gere consistência.</p>
+        <div class="grid-2">
+          <div class="list">
+            <div class="row"><div class="dot"></div><div><strong>Plano de 21 dias:</strong> passos diários fáceis de seguir.</div></div>
+            <div class="row"><div class="dot"></div><div><strong>Protocolos rápidos:</strong> treinos curtos e eficientes.</div></div>
+            <div class="row"><div class="dot"></div><div><strong>Nutrição descomplicada:</strong> combinações e porções sem neura.</div></div>
+            <div class="row"><div class="dot"></div><div><strong>Bem‑estar:</strong> sono, respiração e rotina que te sustentam.</div></div>
+          </div>
+          <div class="offer">
+            <p><span class="strikethrough">R$ 79,90</span> <span class="price">R$ 39,90</span></p>
+            <p class="sub">Acesso imediato ao PDF • Atualizações gratuitas</p>
+            <div class="actions">
+              <a class="btn" href="Vida FIT em 21 dias.pdf" target="_blank" rel="noopener">Baixar agora</a>
+              <a class="btn btn-outline" href="#faq">Tirar dúvidas</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTEÚDO -->
+    <section id="conteudo" class="section">
+      <div class="container">
+        <h2>O que você vai aprender</h2>
+        <p class="sub">Um olhar completo: corpo, mente e rotina.</p>
+        <div class="grid-2">
+          <div class="list">
+            <div class="row"><div class="dot"></div><div><strong>Treino em casa:</strong> aquecimento, força com peso corporal, mobilidade e alongamento.</div></div>
+            <div class="row"><div class="dot"></div><div><strong>Estratégias de alimentação:</strong> proteínas, fibras, organização de refeições.</div></div>
+            <div class="row"><div class="dot"></div><div><strong>Hábitos sustentáveis:</strong> metas realistas, aderência e monitoramento.</div></div>
+          </div>
+          <div class="list">
+            <div class="row"><div class="dot"></div><div><strong>Rotina de 21 dias:</strong> cronograma diário para não pensar — é só executar.</div></div>
+            <div class="row"><div class="dot"></div><div><strong>Bem‑estar mental:</strong> técnicas simples de respiração e foco.</div></div>
+            <div class="row"><div class="dot"></div><div><strong>Extras:</strong> checklists, lista de compras e substituições.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos" class="section">
+      <div class="container">
+        <h2>Resultados que inspiram</h2>
+        <p class="sub">Relatos de quem aplicou o método.</p>
+        <div class="testi">
+          <div class="tcard">
+            <p>“Passei a treinar 20 minutos por dia e já sinto mais disposição. A alimentação proposta é realista.”</p>
+            <div class="tname">Mariana S.</div>
+          </div>
+          <div class="tcard">
+            <p>“Eu vivia cansada. Em 3 semanas, sono melhor e menos ansiedade. Os treinos são possíveis!”</p>
+            <div class="tname">João P.</div>
+          </div>
+          <div class="tcard">
+            <p>“A clareza do cronograma de 21 dias salvou minha rotina. Enfim, consistência.”</p>
+            <div class="tname">Ana C.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTORA -->
+    <section id="autora" class="section">
+      <div class="container author">
+        <div class="avatar">
+          <img src="https://images.unsplash.com/photo-1551292831-023188e78222?q=80&w=1200&auto=format&fit=crop" alt="Autora do ebook Vida Fit em 21 Dias">
+        </div>
+        <div>
+          <h2>Sobre a autora</h2>
+          <p class="sub">Daiane é apaixonada por saúde acessível. Criou o Vida Fit em 21 Dias para ajudar pessoas reais, com rotinas reais, a darem o primeiro passo — e manterem o ritmo.</p>
+          <div class="actions">
+            <a class="btn" href="Vida FIT em 21 dias.pdf" target="_blank" rel="noopener">Quero começar hoje</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRÉVIA PDF -->
+    <section id="preview" class="section">
+      <div class="container">
+        <h2>Veja uma prévia do eBook</h2>
+        <p class="sub">Abra e confira a estrutura antes de baixar.</p>
+        <div class="viewer">
+          <embed src="Vida FIT em 21 dias.pdf" type="application/pdf" width="100%" height="640px" />
+        </div>
+      </div>
+    </section>
+
+    <!-- OFERTA FINAL -->
+    <section id="oferta" class="section">
+      <div class="container">
+        <div class="offer">
+          <h2>Pronta(o) para transformar sua rotina?</h2>
+          <p class="sub">Acesso imediato. Baixe e comece ainda hoje.</p>
+          <div class="actions">
+            <a class="btn" href="Vida FIT em 21 dias.pdf" target="_blank" rel="noopener">📥 Baixar o eBook agora</a>
+            <a class="btn btn-outline" href="#faq">Dúvidas frequentes</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="container">
+        <h2>Perguntas frequentes</h2>
+        <details>
+          <summary>Preciso de equipamentos?</summary>
+          <p>Não. Os treinos usam peso corporal e itens simples da casa.</p>
+        </details>
+        <details>
+          <summary>Funciona para iniciantes?</summary>
+          <p>Sim! O plano foi pensado para quem está começando ou recomeçando.</p>
+        </details>
+        <details>
+          <summary>Recebo atualizações?</summary>
+          <p>Sim, se houver atualizações do PDF, você poderá baixar novamente pelo mesmo link.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Vida Fit em 21 Dias • Criado por Daiane • Contato: seuemail@exemplo.com</p>
+    </div>
+  </footer>
+</body>
+</html>
